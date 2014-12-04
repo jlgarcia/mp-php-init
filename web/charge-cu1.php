@@ -11,10 +11,10 @@
     );
   $body['transaction_amount'] = 2.0;
   $body['card'] = $_POST['card_token'];
-  $body['payer_email'] ='test@mp.com';
+  //$body['payer_email'] ='test@mp.com';
 
   //Deberiamos hacer esto opcional
-  $body['reason'] = 'PHP reason';
+  $body['description'] = 'PHP reason';
   $body['installments'] = 1;
   $body['payment_method_id'] = 'visa';
 
