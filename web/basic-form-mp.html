@@ -31,7 +31,9 @@
              if (response.error) {
                  alert("An error has ocurred: "+JSON.stringify(response));
              } else {
+
                  var card_token = response.id;
+                 //alert("generó el token " + card_token);
                  $form.append($('<input type="hidden" id="card_token" name="card_token"/>').val(card_token));
                  $form.get(0).submit();
              }   

@@ -6,17 +6,26 @@
   $params = array('access_token' => $response['body']->access_token);
 
 
-  $body = array();
-  $body['amount'] = 2.0;
+  $body = array(
+      array("","")
+    );
+  $body['transaction_amount'] = 2.0;
   $body['card'] = $_POST['card_token'];
   $body['payer_email'] ='test@mp.com';
 
   //Deberiamos hacer esto opcional
   $body['reason'] = 'PHP reason';
   $body['installments'] = 1;
+  $body['payment_method_id'] = 'visa';
 
+  $body['payer'] = array("type" => "customer",
+                          "id" => 422342);
+ 
+  echo $body
 
-  $payment = $meli->post('/checkout/custom/beta/create_payment', $body, $params);
+  //$payment = $meli->post('/checkout/custom/beta/create_payment', $body, $params);
+  $payment = $meli->post('/v1/payments', $body, $params);
+
 
   echo $payment["body"]->payment_id;
   
